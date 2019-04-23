@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <title>UPBGE | The best integrated Blender Game Engine</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- UIkit CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.0.0-rc.6/css/uikit.min.css">
+  <!-- Font Loading -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Noto+Sans|Open+Sans">
+  <!-- Custom CSS -->
+  <link href="css/style.css" rel="stylesheet">
+  <!-- lets make sure our anchors will always work when coming from a different page-->
+  <SCRIPT LANGUAGE=JavaScript>
+    function now() {
+      window.location.reload(true);
+    }
+  </SCRIPT>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <link rel="icon" href="favicon.ico" type="image/x-icon" />
+</head>
+
+<body class="uk-flex uk-flex-column ro-text-content" uk-height-viewport>
+
+  <!-- Disappearing Header -->
+  <div class="uk-section uk-section-secondary uk-padding-remove" style="z-index: -1;" uk-sticky="bottom: #offset">
+    <div class="uk-cover-container uk-height-large uk-text-center">
+      <img src="img/UPBGE_Logo.png" alt="Cover Image" uk-cover>
+      <!--div class="uk-position-center uk-background-secondary uk-light">
+        <img src="img\Logo.png" alt="Template Logo">
+        <div class="uk-text-lead uk-text-uppercase ro-text-logo uk-margin-small-top uk-margin-small-bottom">UPBGE^</div>
+      </div-->
+    </div>
+  </div>
+  
+  <!-- Navigation -->
+  <div class="uk-section uk-padding-remove">
+    <!-- large screen nav -->
+    <div class="uk-visible@l" uk-sticky="sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; bottom: #transparent-sticky-navbar">
+      <div class="uk-background-secondary uk-light">
+        <nav class="uk-navbar-container uk-navbar-transparent" uk-navbar>
+          <div class="uk-navbar-center">
+            <ul class="uk-navbar-nav uk-text-capitalize">
+              <li><a href="index.html">Home</a></li>
+              <li><a href="https://upbge-docs.readthedocs.io/en/latest/">Manual</a></li>
+			  <li><a href="http://shuvit.org/python_api/">Python API</a></li> 
+			  <li><a href="https://github.com/UPBGE/blender/wiki">Wiki</a></li>
+              <li><a href="community.html">Community</a></li>
+              <li><a href="https://mega.nz/#F!k9MW1KiZ!UOKzjh3IQ0GEgjQ6GUc7ug">Download</a></li>
+            </ul>
+          </div>
+        </nav>
+      </div>
+    </div>
+	
+    <!-- mobile nav-->
+    <div class="uk-background-secondary uk-light uk-hidden@l uk-position-fixed uk-position-bottom-left uk-width-1-1" style="z-index: 980; border:0;" uk-sticky-fixed>
+      <button class="uk-button uk-button-default uk-width-1-1" style="border:0;" type="button" uk-toggle="target: #offcanvas-slide">
+                <span uk-icon="icon: menu"></span> MENU</button>
+    </div>
+    <div id="offcanvas-slide" uk-offcanvas="bg-close: true">
+      <div class="uk-offcanvas-bar">
+        <button class="uk-offcanvas-close" type="button" uk-close></button>
+        <ul class="uk-nav uk-nav-default">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="https://upbge-docs.readthedocs.io/en/latest/">Manual</a></li>
+		  <li><a href="https://github.com/UPBGE/blender/wiki">Wiki</a></li>
+          <li><a href="community.html">Community</a></li>
+          <li><a href="https://mega.nz/#F!k9MW1KiZ!UOKzjh3IQ0GEgjQ6GUc7ug">Download</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  
