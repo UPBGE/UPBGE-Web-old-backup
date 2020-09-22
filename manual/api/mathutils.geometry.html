@@ -1,0 +1,713 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Geometry Utilities (mathutils.geometry) &mdash; UPBGE Manual latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
+        <script src="../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Interpolation Utilities (mathutils.interpolate)" href="mathutils.interpolate.html" />
+    <link rel="prev" title="BVHTree Utilities (mathutils.bvhtree)" href="mathutils.bvhtree.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../index.html" class="icon icon-home" alt="Documentation Home"> UPBGE Manual
+          
+
+          
+            
+            <img src="../_static/upbge_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../manual/introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/logic/index.html">Logic Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/logic_nodes/index.html">Logic Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/python/index.html">Python Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/datablocks/index.html">Datablocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/release/index.html">Deployment</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/tools/index.html">Tools</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../manual/about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="bge.html">Game Engine Modules (bge)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="mathutils.html">Math Types &amp; Utilities (mathutils)</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="mathutils.bvhtree.html">BVHTree Utilities (mathutils.bvhtree)</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Geometry Utilities (mathutils.geometry)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.interpolate.html">Interpolation Utilities (mathutils.interpolate)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.kdtree.html">KDTree Utilities (mathutils.kdtree)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.noise.html">Noise Utilities (mathutils.noise)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#color">Color</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#euler">Euler</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#matrix">Matrix</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#quaternion">Quaternion</a></li>
+<li class="toctree-l2"><a class="reference internal" href="mathutils.html#vector">Vector</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="bgl.html">OpenGL Wrapper (bgl)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="gpu.html">GPU functions (gpu)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">UPBGE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="mathutils.html">Math Types &amp; Utilities (mathutils)</a> &raquo;</li>
+        
+      <li>Geometry Utilities (mathutils.geometry)</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/api/mathutils.geometry.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="module-mathutils.geometry">
+<span id="geometry-utilities-mathutils-geometry"></span><h1>Geometry Utilities (mathutils.geometry)<a class="headerlink" href="#module-mathutils.geometry" title="Permalink to this headline">¶</a></h1>
+<p>The Blender geometry module</p>
+<dl class="py function">
+<dt id="mathutils.geometry.area_tri">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">area_tri</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v1</span></em>, <em class="sig-param"><span class="n">v2</span></em>, <em class="sig-param"><span class="n">v3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.area_tri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the area size of the 2D or 3D triangle defined.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point1</p></li>
+<li><p><strong>v2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point2</p></li>
+<li><p><strong>v3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point3</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.barycentric_transform">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">barycentric_transform</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">point</span></em>, <em class="sig-param"><span class="n">tri_a1</span></em>, <em class="sig-param"><span class="n">tri_a2</span></em>, <em class="sig-param"><span class="n">tri_a3</span></em>, <em class="sig-param"><span class="n">tri_b1</span></em>, <em class="sig-param"><span class="n">tri_b2</span></em>, <em class="sig-param"><span class="n">tri_b3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.barycentric_transform" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return a transformed point, the transformation is defined by 2 triangles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>point</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The point to transform.</p></li>
+<li><p><strong>tri_a1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – source triangle vertex.</p></li>
+<li><p><strong>tri_a2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – source triangle vertex.</p></li>
+<li><p><strong>tri_a3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – source triangle vertex.</p></li>
+<li><p><strong>tri_a1</strong> – target triangle vertex.</p></li>
+<li><p><strong>tri_a2</strong> – target triangle vertex.</p></li>
+<li><p><strong>tri_a3</strong> – target triangle vertex.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The transformed point</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>’s</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.box_fit_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">box_fit_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.box_fit_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns an angle that best fits the points to an axis aligned rectangle</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>list</em>) – list of 2d points.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>angle</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.box_pack_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">box_pack_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">boxes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.box_pack_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the normal of the 3D tri or quad.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>boxes</strong> (<em>list</em>) – list of boxes, each box is a list where the first 4 items are [x, y, width, height, …] other items are ignored.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>the width and height of the packed bounding box</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple, pair of floats</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.convex_hull_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">convex_hull_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">points</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.convex_hull_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of indices into the list given</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>points</strong> (<em>list</em>) – list of 2d points.</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>a list of indices</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of ints</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.distance_point_to_plane">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">distance_point_to_plane</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pt</span></em>, <em class="sig-param"><span class="n">plane_co</span></em>, <em class="sig-param"><span class="n">plane_no</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.distance_point_to_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the signed distance between a point and a plane    (negative when below the normal).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>plane_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – A point on the plane</p></li>
+<li><p><strong>plane_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The direction the plane is facing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.interpolate_bezier">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">interpolate_bezier</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">knot1</span></em>, <em class="sig-param"><span class="n">handle1</span></em>, <em class="sig-param"><span class="n">handle2</span></em>, <em class="sig-param"><span class="n">knot2</span></em>, <em class="sig-param"><span class="n">resolution</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.interpolate_bezier" title="Permalink to this definition">¶</a></dt>
+<dd><p>Interpolate a bezier spline segment.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>knot1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First bezier spline point.</p></li>
+<li><p><strong>handle1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First bezier spline handle.</p></li>
+<li><p><strong>handle2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second bezier spline handle.</p></li>
+<li><p><strong>knot2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second bezier spline point.</p></li>
+<li><p><strong>resolution</strong> (<em>int</em>) – Number of points to return.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The interpolated points</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>list of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>’s</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_line_line">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_line_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v1</span></em>, <em class="sig-param"><span class="n">v2</span></em>, <em class="sig-param"><span class="n">v3</span></em>, <em class="sig-param"><span class="n">v4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_line_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a tuple with the points on each line respectively closest to the other.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the first line</p></li>
+<li><p><strong>v2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the first line</p></li>
+<li><p><strong>v3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the second line</p></li>
+<li><p><strong>v4</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the second line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>’s</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_line_line_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_line_line_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">lineA_p1</span></em>, <em class="sig-param"><span class="n">lineA_p2</span></em>, <em class="sig-param"><span class="n">lineB_p1</span></em>, <em class="sig-param"><span class="n">lineB_p2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_line_line_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes 2 segments (defined by 4 vectors) and returns a vector for their point of intersection or None.</p>
+<div class="admonition warning">
+<p class="admonition-title">Warning</p>
+<p>Despite its name, this function works on segments, and not on lines.</p>
+</div>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>lineA_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the first line</p></li>
+<li><p><strong>lineA_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the first line</p></li>
+<li><p><strong>lineB_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the second line</p></li>
+<li><p><strong>lineB_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the second line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The point of intersection or None when not found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_line_plane">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_line_plane</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line_a</span></em>, <em class="sig-param"><span class="n">line_b</span></em>, <em class="sig-param"><span class="n">plane_co</span></em>, <em class="sig-param"><span class="n">plane_no</span></em>, <em class="sig-param"><span class="n">no_flip</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_line_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the intersection between a line (as 2 vectors) and a plane.
+Returns a vector for the intersection or None.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>line_a</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the first line</p></li>
+<li><p><strong>line_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the first line</p></li>
+<li><p><strong>plane_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – A point on the plane</p></li>
+<li><p><strong>plane_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The direction the plane is facing</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The point of intersection or None when not found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_line_sphere">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_line_sphere</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line_a</span></em>, <em class="sig-param"><span class="n">line_b</span></em>, <em class="sig-param"><span class="n">sphere_co</span></em>, <em class="sig-param"><span class="n">sphere_radius</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_line_sphere" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a line (as 2 points) and a sphere (as a point and a radius) and
+returns the intersection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>line_a</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the line</p></li>
+<li><p><strong>line_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the line</p></li>
+<li><p><strong>sphere_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The center of the sphere</p></li>
+<li><p><strong>sphere_radius</strong> (<em>sphere_radius</em>) – Radius of the sphere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The intersection points as a pair of vectors or None when there is no intersection</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A tuple pair containing <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_line_sphere_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_line_sphere_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">line_a</span></em>, <em class="sig-param"><span class="n">line_b</span></em>, <em class="sig-param"><span class="n">sphere_co</span></em>, <em class="sig-param"><span class="n">sphere_radius</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_line_sphere_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a line (as 2 points) and a sphere (as a point and a radius) and
+returns the intersection</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>line_a</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the line</p></li>
+<li><p><strong>line_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the line</p></li>
+<li><p><strong>sphere_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – The center of the sphere</p></li>
+<li><p><strong>sphere_radius</strong> (<em>sphere_radius</em>) – Radius of the sphere</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The intersection points as a pair of vectors or None when there is no intersection</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>A tuple pair containing <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_plane_plane">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_plane_plane</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">plane_a_co</span></em>, <em class="sig-param"><span class="n">plane_a_no</span></em>, <em class="sig-param"><span class="n">plane_b_co</span></em>, <em class="sig-param"><span class="n">plane_b_no</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_plane_plane" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the intersection between two planes</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>plane_a_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point on the first plane</p></li>
+<li><p><strong>plane_a_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Normal of the first plane</p></li>
+<li><p><strong>plane_b_co</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point on the second plane</p></li>
+<li><p><strong>plane_b_no</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Normal of the second plane</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The line of the intersection represented as a point and a vector</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>tuple pair of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None if the intersection can’t be calculated</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_point_line">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_point_line</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pt</span></em>, <em class="sig-param"><span class="n">line_p1</span></em>, <em class="sig-param"><span class="n">line_p2</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_line" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a point and a line and returns a tuple with the closest point on the line and its distance from the first point of the line as a percentage of the length of the line.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>line_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the line</p></li>
+<li><p><strong>line_p1</strong> – Second point of the line</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>(<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>, float)</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_point_quad_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_point_quad_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pt</span></em>, <em class="sig-param"><span class="n">quad_p1</span></em>, <em class="sig-param"><span class="n">quad_p2</span></em>, <em class="sig-param"><span class="n">quad_p3</span></em>, <em class="sig-param"><span class="n">quad_p4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_quad_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes 5 vectors (using only the x and y coordinates): one is the point and the next 4 define the quad,
+only the x and y are used from the vectors. Returns 1 if the point is within the quad, otherwise 0.
+Works only with convex quads without singular edges.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>quad_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the quad</p></li>
+<li><p><strong>quad_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the quad</p></li>
+<li><p><strong>quad_p3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Third point of the quad</p></li>
+<li><p><strong>quad_p4</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Fourth point of the quad</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_point_tri">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_point_tri</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pt</span></em>, <em class="sig-param"><span class="n">tri_p1</span></em>, <em class="sig-param"><span class="n">tri_p2</span></em>, <em class="sig-param"><span class="n">tri_p3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_tri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes 4 vectors: one is the point and the next 3 define the triangle.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>tri_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the triangle</p></li>
+<li><p><strong>tri_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the triangle</p></li>
+<li><p><strong>tri_p3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Third point of the triangle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>Point on the triangles plane or None if its outside the triangle</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_point_tri_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_point_tri_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">pt</span></em>, <em class="sig-param"><span class="n">tri_p1</span></em>, <em class="sig-param"><span class="n">tri_p2</span></em>, <em class="sig-param"><span class="n">tri_p3</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_point_tri_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes 4 vectors (using only the x and y coordinates): one is the point and the next 3 define the triangle. Returns 1 if the point is within the triangle, otherwise 0.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>pt</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point</p></li>
+<li><p><strong>tri_p1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – First point of the triangle</p></li>
+<li><p><strong>tri_p2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Second point of the triangle</p></li>
+<li><p><strong>tri_p3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Third point of the triangle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_ray_tri">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_ray_tri</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v1</span></em>, <em class="sig-param"><span class="n">v2</span></em>, <em class="sig-param"><span class="n">v3</span></em>, <em class="sig-param"><span class="n">ray</span></em>, <em class="sig-param"><span class="n">orig</span></em>, <em class="sig-param"><span class="n">clip</span><span class="o">=</span><span class="default_value">True</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_ray_tri" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the intersection between a ray and a triangle, if possible, returns None otherwise.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point1</p></li>
+<li><p><strong>v2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point2</p></li>
+<li><p><strong>v3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point3</p></li>
+<li><p><strong>ray</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Direction of the projection</p></li>
+<li><p><strong>orig</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Origin</p></li>
+<li><p><strong>clip</strong> (<em>boolean</em>) – When False, don’t restrict the intersection to the area of the triangle, use the infinite plane defined by the triangle.</p></li>
+</ul>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>The point of intersection or None if no intersection is found</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a> or None</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.intersect_sphere_sphere_2d">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">intersect_sphere_sphere_2d</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">p_a</span></em>, <em class="sig-param"><span class="n">radius_a</span></em>, <em class="sig-param"><span class="n">p_b</span></em>, <em class="sig-param"><span class="n">radius_b</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.intersect_sphere_sphere_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns 2 points on between intersecting circles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>p_a</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center of the first circle</p></li>
+<li><p><strong>radius_a</strong> (<em>float</em>) – Radius of the first circle</p></li>
+<li><p><strong>p_b</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Center of the second circle</p></li>
+<li><p><strong>radius_b</strong> (<em>float</em>) – Radius of the second circle</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>tuple of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>’s or None when there is no intersection</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.normal">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">normal</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">vectors</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.normal" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns the normal of a 3D polygon.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>vectors</strong> (<em>sequence of 3</em><em> or </em><em>more 3d vector</em>) – Vectors to calculate normals with</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p><a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.points_in_planes">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">points_in_planes</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">planes</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.points_in_planes" title="Permalink to this definition">¶</a></dt>
+<dd><p>Returns a list of points inside all planes given and a list of index values for the planes used.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>planes</strong> (list of <a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – List of planes (4D vectors).</p>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><p>two lists, once containing the vertices inside the planes, another containing the plane indices used</p>
+</dd>
+<dt class="field-odd">Return type</dt>
+<dd class="field-odd"><p>pair of lists</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.tessellate_polygon">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">tessellate_polygon</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">veclist_list</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.tessellate_polygon" title="Permalink to this definition">¶</a></dt>
+<dd><p>Takes a list of polylines (each point a vector) and returns the point indices for a polyline filled with triangles.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><p><strong>veclist_list</strong> – list of polylines</p>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>list</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt id="mathutils.geometry.volume_tetrahedron">
+<code class="sig-prename descclassname">mathutils.geometry.</code><code class="sig-name descname">volume_tetrahedron</code><span class="sig-paren">(</span><em class="sig-param"><span class="n">v1</span></em>, <em class="sig-param"><span class="n">v2</span></em>, <em class="sig-param"><span class="n">v3</span></em>, <em class="sig-param"><span class="n">v4</span></em><span class="sig-paren">)</span><a class="headerlink" href="#mathutils.geometry.volume_tetrahedron" title="Permalink to this definition">¶</a></dt>
+<dd><p>Return the volume formed by a tetrahedron (points can be in any order).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>v1</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point1</p></li>
+<li><p><strong>v2</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point2</p></li>
+<li><p><strong>v3</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point3</p></li>
+<li><p><strong>v4</strong> (<a class="reference internal" href="mathutils.html#mathutils.Vector" title="mathutils.Vector"><code class="xref py py-class docutils literal notranslate"><span class="pre">mathutils.Vector</span></code></a>) – Point4</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type</dt>
+<dd class="field-even"><p>float</p>
+</dd>
+</dl>
+</dd></dl>
+
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mathutils.interpolate.html" class="btn btn-neutral float-right" title="Interpolation Utilities (mathutils.interpolate)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mathutils.bvhtree.html" class="btn btn-neutral float-left" title="BVHTree Utilities (mathutils.bvhtree)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>

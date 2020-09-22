@@ -1,0 +1,298 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>API Stubs &mdash; UPBGE Manual latest documentation</title>
+  
+
+  
+  <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
+
+  
+  
+  
+  
+
+  
+  <!--[if lt IE 9]>
+    <script src="../../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../../" src="../../_static/documentation_options.js"></script>
+        <script src="../../_static/jquery.js"></script>
+        <script src="../../_static/underscore.js"></script>
+        <script src="../../_static/doctools.js"></script>
+        <script src="../../_static/language_data.js"></script>
+    
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+
+    
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="About" href="../about/index.html" />
+    <link rel="prev" title="Tools" href="index.html" /> 
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+          
+
+          
+            <a href="../../index.html" class="icon icon-home" alt="Documentation Home"> UPBGE Manual
+          
+
+          
+            
+            <img src="../../_static/upbge_logo.png" class="logo" alt="Logo"/>
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                latest
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <p class="caption"><span class="caption-text">Manual</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../introduction/index.html">Introduction</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../tutorials/index.html">Tutorials</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../editors/index.html">Editors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logic/index.html">Logic Bricks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../logic_nodes/index.html">Logic Nodes</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../python/index.html">Python Scripting</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../physics/index.html">Physics</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../datablocks/index.html">Datablocks</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../release/index.html">Deployment</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Tools</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">API Stubs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-they">What Are They?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fake-bpy-module">fake-bpy-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#fake-bge-module">fake-bge-module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#caveats">Caveats</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../about/index.html">About</a></li>
+</ul>
+<p class="caption"><span class="caption-text">API Reference</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../api/bge.html">Game Engine Modules (bge)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/aud.html">Audio System (aud)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/mathutils.html">Math Types &amp; Utilities (mathutils)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/bgl.html">OpenGL Wrapper (bgl)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/blf.html">Font Drawing (blf)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../api/gpu.html">GPU functions (gpu)</a></li>
+</ul>
+
+            
+          
+        </div>
+        
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">UPBGE Manual</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../../index.html" class="icon icon-home"></a> &raquo;</li>
+        
+          <li><a href="index.html">Tools</a> &raquo;</li>
+        
+      <li>API Stubs</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../../_sources/manual/tools/api_stubs.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="api-stubs">
+<h1>API Stubs<a class="headerlink" href="#api-stubs" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-are-they">
+<h2>What Are They?<a class="headerlink" href="#what-are-they" title="Permalink to this headline">¶</a></h2>
+<p>Python is a dynamically-typed language, but that doesn’t mean you can’t have
+such quality-of-life features like auto-completion or type information for APIs,
+which all modern IDEs provide.</p>
+<p>The only reason you can’t have them for Blender or UPBGE projects is that the
+relevant modules(namely, <cite>bpy.*</cite> and <cite>bge.*</cite>) are only available inside Blender.</p>
+<p>There are two possible options to deal with this problem. Firstly, you can
+<a class="reference external" href="https://wiki.blender.org/wiki/Building_Blender/Other/BlenderAsPyModule">build Blender as a Python module</a>,
+which would give your IDE the most accurate and up-to-date API information as possible.</p>
+<p>But it’s not always easy to build Blender from source, especially if you are not
+familiar with the task. In this case, using API stubs, or a “fake module” could be
+a good alternative.</p>
+</div>
+<div class="section" id="fake-bpy-module">
+<h2>fake-bpy-module<a class="headerlink" href="#fake-bpy-module" title="Permalink to this headline">¶</a></h2>
+<p>There is an open-source project named <a class="reference external" href="https://github.com/nutti/fake-bpy-module">fake-bpy-module</a>
+which provides a stub for Blender’s Python API.</p>
+<p>Once you install it via pip (or any other package manager you may prefer), you can
+configure the IDE of your choice as described in the project page.</p>
+<p>After that, you can enjoy nice auto-completion and type information for most of the
+Blender’s Python API.</p>
+<p>One thing to remember, by the way, is that you need to match the version of
+<cite>fake-bpy-module</cite> to that of Blender on which your UPBGE installation is based. For
+UPBGE 0.2.5, you need to install <cite>fake-bpy-module-2.79</cite>, for example.</p>
+<p>At the time of the writing, there is no fake-bpy-module for Blender 2.90, which
+UPBGE 0.3.0 supports. Before the new version of the module is released, you may want
+to install <cite>fake-bpy-module-2.83</cite> instead, as it is the closest version to 2.90.</p>
+</div>
+<div class="section" id="fake-bge-module">
+<h2>fake-bge-module<a class="headerlink" href="#fake-bge-module" title="Permalink to this headline">¶</a></h2>
+<p>There is also <a class="reference external" href="https://github.com/nutti/fake-bge-module">fake-bge-module</a>, which
+supports UPBGE’s Python API as its Blender counterpart does for Blender’s core API.</p>
+<p>The usage instruction almost the same as the other module which you can read from
+the project’s homepage. There is only a version for UPBGE 0.2.5 at the moment, but
+it should work for newer versions as well for the most part.</p>
+</div>
+<div class="section" id="caveats">
+<h2>Caveats<a class="headerlink" href="#caveats" title="Permalink to this headline">¶</a></h2>
+<p>There is one crucial caveat with providing type hints
+(<a class="reference external" href="https://www.python.org/dev/peps/pep-0484/">PEP-484</a>) for UPBGE API, however.</p>
+<p>Due to <a class="reference external" href="https://github.com/UPBGE/upbge/issues/1240">an issue</a> regarding how the
+module initializes itself, you cannot reference BGE types(e.g. <cite>KX_Camera</cite>) other
+than <cite>KX_Component</cite> in your game component.</p>
+<p>Auto-completion and type information should work regardless of the problem.
+Still, it certainly limits the benefits of such features provided by <cite>fake-bge-module</cite>,
+o better be resolved sooner than later.</p>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../about/index.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral float-left" title="Tools" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        
+        &copy; Copyright This page is licensed under a CC-BY-SA 4.0 Int. License.
+
+    </p>
+  </div>
+    
+    
+    
+    Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a
+    
+    <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a>
+    
+    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script>
+
+  
+  
+    
+   
+
+</body>
+</html>
