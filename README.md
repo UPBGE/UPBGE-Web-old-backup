@@ -1,6 +1,6 @@
 # UPBGE-Web
 
-Each commit is automatically uploaded to UPBGE Web server by CI.
+Each commit is automatically uploaded to UPBGE Web server by CI (not configured yet, in process).
 
 Additional things:
 
