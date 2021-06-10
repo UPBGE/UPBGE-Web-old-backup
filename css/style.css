@@ -50,3 +50,8 @@
 .card-text {
   margin: 10px;
 }
+
+.alt-links {
+  margin-top: -10px;
+  font-size: 0.85rem;
+}
