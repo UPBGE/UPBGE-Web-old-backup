@@ -33,3 +33,25 @@
 .uk-container-large {
   max-width: 1200px;
 }
+
+.uk-card-default {
+  background: none;
+}
+
+.card-img {
+  max-height: 80px;
+  margin: 10px;
+}
+
+.card-header {
+  margin: 10px;
+}
+
+.card-text {
+  margin: 10px;
+}
+
+.alt-links {
+  margin-top: -10px;
+  font-size: 0.85rem;
+}
