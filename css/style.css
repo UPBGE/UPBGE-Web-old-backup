@@ -43,8 +43,17 @@
   margin: 10px;
 }
 
+.card-img2 {
+  max-height: 150px;
+  margin: 0px;
+}
+
 .card-header {
   margin: 10px;
+}
+
+.card-header2 {
+  margin: 0px;
 }
 
 .card-text {
