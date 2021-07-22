@@ -16,7 +16,7 @@ public_html/
 
 --- `img`
 
---- `downloads/index.html` (I update manually the MEGA folder)
+--- `downloads/index.html` (lordloki manually updates the build releases)
 
 ------ **Stable Releases**
 
